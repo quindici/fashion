@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  # validates(:email, presence: true )
+  validates :display_name, presence: true, length: { maximum: 30, too_long: "%{count} characters is the max allowed for display name" }
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
