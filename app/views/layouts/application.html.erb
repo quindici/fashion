@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <%= render htmlhead %>
+  <%= render 'layouts/htmlhead' %>
 <body>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<% if user_signed_in? %>
-  <p>User <%= current_user.display_name %>, You are signed in</p>
-  <p><%= link_to "Edit my Profile", edit_user_registration_path %></p>
-  <p><%= link_to "Logout", destroy_user_session_path, :method => :delete %></p>
-<% else %>
-  <p>You are not signed in</p>
-  <p><%= link_to "Sign up", new_user_registration_path, class: "btn btn-large btn-primary" %></p>
-  <p><%= link_to "Login", new_user_session_path, class: "btn btn-large btn-primary" %></p>
-<% end %>
+<%= render 'layouts/header' %>
 
-<%= yield %>
-
-
+<div class="container">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%=key%>"><%=value%></div>
+    <%end%>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
+</div>
 </body>
 </html>

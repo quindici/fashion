@@ -22,3 +22,5 @@ database.yml
 .DS_Store
 .secret
 .idea
+
+/public/system

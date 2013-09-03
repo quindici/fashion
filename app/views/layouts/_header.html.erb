@@ -1,0 +1,31 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container">
+			<%= link_to "How do I look?", root_path, id: "logo", class: "brand" %>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+	              <li><%= link_to "Home", root_path, class: "active" %></li>
+	              <li>About</li>
+	            </ul>
+	            <% if user_signed_in? %>
+	              <li class="btn dropdown pull-right">
+	              	<% unless current_user.avatar.nil? %>
+	              		<%= image_tag current_user.avatar.url(:thumb) %>
+	              	<% end %>
+	              	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+	              	<ul class="dropdown-menu">
+                    	<li><%= link_to "Profile", edit_user_registration_path%></li>
+                    	<li class="divider"></li>
+                    	<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                  	</ul>
+	              </li>
+	            <% else %>
+	            	<ul class="navbar pull-right">
+			          <li class="btn"><%= link_to "Sign in", new_user_session_path %></li>
+			          <li class="btn btn-primary"><%= link_to "Sign up", new_user_registration_path %></li>
+			      	</ul>
+	            <% end %>
+			</div>
+		</div>
+	</div>
+</header>
