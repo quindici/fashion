@@ -25,7 +25,7 @@
   <div>Current Avatar:<br />
   <%= image_tag current_user.avatar.url(:thumb) %>
   </div>
-  <div>Avatar:<br />
+  <div><%= f.label "Avatar" %><br />
     <%= f.file_field :avatar %>
   </div>
 

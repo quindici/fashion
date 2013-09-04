@@ -23,4 +23,6 @@ database.yml
 .secret
 .idea
 
+# For paperclip
 /public/system
+/spec/fixtures

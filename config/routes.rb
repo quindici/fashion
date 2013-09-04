@@ -8,6 +8,8 @@ Hdil2::Application.routes.draw do
   root 'staticpages#home'
 
   devise_for :users
+
+  get 'user/:id' => 'user#show'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
