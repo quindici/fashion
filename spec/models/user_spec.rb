@@ -9,6 +9,8 @@ describe "Users" do
 	it{should respond_to(:display_name)}
 	it{should respond_to(:avatar)}
 
+	it{should respond_to(:looks)}
+
 	describe "when name is not present" do
 		before {@user.email = ""}
 		it {should_not be_valid}
