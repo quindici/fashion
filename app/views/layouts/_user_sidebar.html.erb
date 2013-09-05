@@ -1,10 +1,9 @@
-<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
   <div class="well sidebar-nav">
     <ul class="nav">
       <li><%= image_tag @user.avatar.url(:medium) %></li>
-      <li><%= @user.display_name %></li>
+      <li id="display_name"><%= @user.display_name %></li>
       <li>Description.. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</li>
       
     </ul>
   </div><!--/.well -->
-</div><!--/span-->

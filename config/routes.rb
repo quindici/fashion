@@ -9,7 +9,7 @@ Hdil2::Application.routes.draw do
 
   devise_for :users
 
-  get 'user/:id' => 'user#show'
+  match 'user/:id' => 'user#show', as: :show_user, via: :get
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

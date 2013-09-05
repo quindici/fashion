@@ -21,4 +21,9 @@ describe LookPhoto do
   	before {@lookPhoto.look_id = nil}
   	it {should_not be_valid}
   end
+
+  describe "when lookPhoto's description is too long" do
+    before {@lookPhoto.description = "a"*141}
+    it {should_not be_valid}
+  end
 end

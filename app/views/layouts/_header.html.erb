@@ -10,11 +10,12 @@
 	            <% if user_signed_in? %>
 	              <li class="btn dropdown pull-right">
 	              	<% unless current_user.avatar.nil? %>
-	              		<%= image_tag current_user.avatar.url(:thumb) %>
+	              		<%= image_tag current_user.avatar.url(:thumb), size: "50x50" %>
 	              	<% end %>
 	              	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
 	              	<ul class="dropdown-menu">
-                    	<li><%= link_to "Profile", edit_user_registration_path%></li>
+                    	<li><%= link_to "My Profile", show_user_path(current_user.id)%></li>
+                    	<li><%= link_to "Edit Profile", edit_user_registration_path%></li>
                     	<li class="divider"></li>
                     	<li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
                   	</ul>
