@@ -6,27 +6,20 @@
         <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
       </div>
       <div class="row">
-        <div class="span3">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-        </div><!--/span-->
-        <div class="span3">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-        </div><!--/span-->
-        <div class="span3">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-        </div><!--/span-->
+        <% @looks.each do |l| %>
+          <div class="span3">
+            <% lp = l.lookPhotos.first %>
+            <% unless lp.nil? %>
+              <%= image_tag lp.photo.url %>
+            <% end %>
+            <p><%= l.description %></p>
+            <p><%= link_to "View Details", look_path(l.id) %>></p>
+          </div><!--/span-->
+        <% end %>
         
       </div><!--/row-->
     </div><!--/span-->
     <div class="span3" id="user_sidebar">
       <%= render "layouts/user_sidebar" %>
     </div>
-
-    
 </div>

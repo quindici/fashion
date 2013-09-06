@@ -9,7 +9,14 @@ Hdil2::Application.routes.draw do
 
   devise_for :users
 
-  match 'user/:id' => 'user#show', as: :show_user, via: :get
+  # Show a particular user
+  match 'user/:id' => 'user#show',  as: :show_user, via: :get
+
+  # look, all resources except index, will generate later
+  resources :looks, only: [:show, :new, :create, :edit, :destroy]
+  
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,35 @@
+<h1>New Look</h1>
+<div class="row">
+	<div class="span6">
+		<%= form_for(@look, html: {multipart: true}) do |f| %>
+			<% if @look.errors.any? %>
+			  <div id="error_explanation">
+			    <div class="alert alert-error">
+			      The form contains <%= pluralize(@look.errors.count, "error") %>.
+			    </div>
+			    <ul>
+			    <% @look.errors.full_messages.each do |msg| %>
+			      <li>* <%= msg %></li>
+			    <% end %>
+			    </ul>
+			  </div>
+			<% end %>
+
+			<%= f.fields_for :lookPhoto do |lp_form| %>
+				<% # if lp_form.object.new_record? %>
+					<p>
+						<%= lp_form.label :photo %><br />
+						<%= lp_form.file_field :photo %>
+					</p>
+				<% # end %>
+			<% end %>
+
+			<p>
+				<%= f.label :description %><br />
+				<%= f.text_area :description, rows: 4 %>
+			</p>
+
+			<%= f.submit "How do I look?", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>

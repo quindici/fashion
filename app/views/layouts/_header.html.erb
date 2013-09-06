@@ -7,12 +7,23 @@
 	              <li><%= link_to "Home", root_path, class: "active" %></li>
 	              <li>About</li>
 	            </ul>
+	            <ul class="nav pull-right">
 	            <% if user_signed_in? %>
-	              <li class="btn dropdown pull-right">
-	              	<% unless current_user.avatar.nil? %>
-	              		<%= image_tag current_user.avatar.url(:thumb), size: "50x50" %>
-	              	<% end %>
-	              	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+	              <li>
+	              	<form action="<%= new_look_path %>">
+	              	  <button id="AddLookButton" class="btn">Add Look</button>
+	              	</form>
+	              	<!-- In the future I would like to have dropdown form! -->
+	              	<!-- <button id="AddLookButton" class="btn dropdown-toggle" data-toggle="dropdown">Add Look <span class="caret"></span></button>
+	                -->
+	              </li>
+	              <!-- Account dropdown -->
+	              <li>
+	              	<button id="AccountButton"  class="btn dropdown-toggle" data-toggle="dropdown">
+	              		<% unless current_user.avatar.nil? %>
+		              		<%= image_tag current_user.avatar.url(:tinythumb) %>
+		              	<% end %>
+	              		Account <span class="caret"></span></button>
 	              	<ul class="dropdown-menu">
                     	<li><%= link_to "My Profile", show_user_path(current_user.id)%></li>
                     	<li><%= link_to "Edit Profile", edit_user_registration_path%></li>
@@ -21,11 +32,10 @@
                   	</ul>
 	              </li>
 	            <% else %>
-	            	<ul class="navbar pull-right">
 			          <li class="btn"><%= link_to "Sign in", new_user_session_path %></li>
 			          <li class="btn btn-primary"><%= link_to "Sign up", new_user_registration_path %></li>
-			      	</ul>
 	            <% end %>
+	        	</ul> <!-- ul nav end -->
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,16 @@
+<h1>Show Looks</h1>
+<div class="row">
+	<p>
+		<% @look.lookPhotos.each do |lp| %>
+			<%= image_tag lp.photo.url %>
+		<% end %>
+	</p>
+	<p>
+		<% @look.description %>
+	</p>
+	<p>
+		Created by: 
+		<b><%= @look.user.display_name %></b><br />
+		<%= @look.created_at %>
+	</p>
+</div>
