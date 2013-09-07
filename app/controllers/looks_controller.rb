@@ -30,12 +30,33 @@ class LooksController < ApplicationController
 		@look = Look.find(params[:id])
 	end
 
+	def destroy
+		@look  = Look.find(params[:id])
+		@user = @look.user
+		if @user.id = current_user.id
+			@look.destroy
+			flash[:success] = "Look deleted successfully"
+		else
+			flash[:notice] = "Something's wrong"
+		end
+		redirect_to show_user_path(current_user.id)
+	end
+
 	# Below is the todos...
 	def edit
 		@look = Look.find(params[:id])
 	end
 
 	def update
+		@look = Look.find(params[:id])
+		@look.description = params[:look][:description]
+
+		if current_user.id == @look.user.id && @look.save
+			flash[:success] = "Update successfully"
+		else
+			flash[:notice] = "Something's wrong, you can only edit look owned by you."
+		end
+		redirect_to show_user_path(current_user.id)
 	end
 
 	private

@@ -1,0 +1,20 @@
+<h1>Edit Looks</h1>
+<div class="row">
+	<p>
+		<% @look.lookPhotos.each do |lp| %>
+			<%= image_tag lp.photo.url %>
+		<% end %>
+	</p>
+	<%= form_for @look, html: {method: :put} do |f| %>
+		<p>
+			<%= f.label :description %>
+			<%= f.text_area :description, :autofocus => true, :row => 6 %>
+		</p>
+		<%= f.submit "Update" %>
+	<% end %>
+	<p>
+		Created by: 
+		<b><%= @look.user.display_name %></b><br />
+		<%= @look.created_at %>
+	</p>
+</div>
