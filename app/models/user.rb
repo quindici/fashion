@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
       :url => "/system/:class/:attachment/:id/:style.:extension",
       :path => ":rails_root/public/system/:class/:attachment/:id/:style.:extension"
 
+  has_many :looks, dependent: :destroy
+  has_many :comments
+
   # validates(:email, presence: true )
   validates :display_name, presence: true, length: { maximum: 30, too_long: "%{count} characters is the max allowed for display name" }
   validates_with AttachmentSizeValidator, attributes: :avatar, 
@@ -19,5 +22,5 @@ class User < ActiveRecord::Base
     content_type: ['image/jpeg', 'image/png', 'image/gif'],
     :unless=> Proc.new { |image| image[:avatar].nil? }
 
-  has_many :looks, dependent: :destroy
+
 end

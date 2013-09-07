@@ -14,6 +14,8 @@ Hdil2::Application.routes.draw do
 
   # look, all resources except index, will generate later
   resources :looks
+
+  resources :comments, only: [:create, :destroy]
   
 
 
