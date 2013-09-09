@@ -62,6 +62,7 @@ end
 gem "paperclip", "~> 3.0"
 group :production do
 	gem 'aws-sdk'
+	gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password
