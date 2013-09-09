@@ -1,0 +1,13 @@
+<% lp = l.lookPhotos.first %>
+<% unless lp.nil? %>
+  <%= link_to image_tag(lp.photo.url), look_path(l.id) %>
+<% end %>
+<p><%= time_ago_in_words(@look.created_at) %></p>
+<p><%= l.description %></p>
+<ul>
+  <li><%= link_to "View Details", look_path(l.id) %></li>
+  <% if l.user_id = current_user.id %>
+    <li><%= link_to "Edit", edit_look_path(l.id), class: "action" %></li>
+    <li><%= link_to "Delete", look_path(l.id), confirm: "Are you sure you want to delete this look?", method: :delete %></li>
+  <% end %>
+</p>

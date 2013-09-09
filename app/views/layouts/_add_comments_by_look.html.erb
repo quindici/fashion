@@ -1,0 +1,17 @@
+<!-- _add_comments_by_look -->
+
+    <% # comment = @look.comments.new %>
+	<%= form_for :comment, html: {method: :put} do |c| %>
+	<div class="row">
+		<div class="span">
+			<%= image_tag current_user.avatar.url(:thumb) %>
+		</div>
+		<div class="span">
+			<p><%= c.label "Enter your comment here:" %></p>
+			<p><%= c.text_area :text %></p>
+
+			<p><%= c.submit "Submit Comment", class: "btn btn-tiny" %></p>
+
+		</div>
+	</div>
+	<% end %>

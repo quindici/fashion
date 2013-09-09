@@ -36,6 +36,10 @@ gem 'devise'
 # Bootstrap styling
 gem 'bootstrap-sass'
 
+# Page Pagination
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+
 # These codes are for the testing
 group :development, :test do
   # gem 'sqlite3', '1.3.7'
