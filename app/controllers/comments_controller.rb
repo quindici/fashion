@@ -15,11 +15,15 @@ class CommentsController < ApplicationController
 
 	def destroy
 		comment = Comment.find(params[:id])
-		if comment.destroy
-			flash[:success] = "Comment deleted"
+		if comment.user_id == current_user.id do
+			if comment.destroy
+				flash[:success] = "Comment deleted"
+			else
+				flash[:fail] = "Comment not yet deleted: #{comment.errors.full_messages}"
+			end
 		else
-			flash[:fail] = "Comment not yet deleted: #{comment.errors.full_messages}"
-		end
+			flash[:fail] = "User Access Error: You can only delete your own comments"
+		end 
 		redirect_to @look
 	end
 

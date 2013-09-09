@@ -4,5 +4,8 @@
 	</div>
 	<div class="span10">
 		<p><%= comment_entry.text %></p>
+		<% if comment_entry.user_id == current_user.id %>
+			<p><%= link_to "Delete", look_comment_url(look_id: comment_entry.look_id, id: comment_entry.id), confirm: "Are you sure you want to delete this comment?", method: :delete %></p>
+		<% end %>
 	</div>
 </div>
