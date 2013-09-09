@@ -18,7 +18,7 @@ class LooksController < ApplicationController
 
 		if @look.save
 			# Save successfully..
-			flash[:notice] = "Look created successfully"
+			flash[:success] = "Look created successfully"
 			redirect_to @look
 		else
 			# Failed!
@@ -28,6 +28,12 @@ class LooksController < ApplicationController
 
 	def show
 		@look = Look.find(params[:id])
+
+		# Prepared for adding new comments
+		# This is copied from tutorials 10.31
+		@new_comment = @look.comments.build if user_signed_in?
+		@comment_items = @look.comments.paginate(page: params[:page])
+		# Refer to Tutorial 10.39 for a better implementation
 	end
 
 	def destroy

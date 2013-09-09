@@ -1,0 +1,8 @@
+<div class="row" id="<%= comment_entry.id %>">
+	<div class="span2">
+		<%= image_tag comment_entry.user.avatar.url(:thumb) %>
+	</div>
+	<div class="span10">
+		<p><%= comment_entry.text %></p>
+	</div>
+</div>

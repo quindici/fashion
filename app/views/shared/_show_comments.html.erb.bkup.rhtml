@@ -1,0 +1,16 @@
+<!-- _show_comments -->
+
+	<% @comment_items.each do |c| %>
+		<% unless c.user.nil? %>
+			<div class="row">
+				<div class="span3">
+					<!-- In controller, there is one new comment build for getting things ready. This will throw an exceptions for the following -->
+					<!-- To avoid this, the unless condition is added... -->
+						<%= image_tag c.user.avatar.url(:thumb) %>
+				</div>
+				<div class="span9">
+					<p><%= c.text %></p>
+				</div>
+			</div>
+		<% end %>
+	<% end %>

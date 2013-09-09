@@ -7,10 +7,9 @@
       </div>
       <div class="row">
 
-        <% if @user.looks.any? %>
-          <%= will_paginate @looks %>
+        <% if @look_item.any? %>
           
-          <% @looks.each do |l| %>
+          <% @look_item.each do |l| %>
             <div class="span3">
 
 <!-- Start layouts of looks+photos -->
@@ -32,7 +31,7 @@
 
             </div><!--/span-->
           <% end %>
-          <%= will_paginate @looks %>
+
         <% else %>
           <div class="jumbotron">
             <h3>No looks had been uploaded by this user, please come back later</h3>
@@ -42,6 +41,6 @@
       </div><!--/row-->
     </div><!--/span-->
     <div class="span3" id="user_sidebar">
-      <%= render "layouts/user_sidebar" %>
+      <%= render "shared/user_sidebar" %>
     </div>
 </div>

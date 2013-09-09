@@ -14,7 +14,9 @@
 		<%= @look.created_at %>
 	</p>
 	<div id="commentArea">
-		<%= render "layouts/add_comments_by_look" %>
-		<%= render "layouts/show_comments_by_look" %>
+		<% if user_signed_in? %>
+			<%= render "shared/add_comments_by_look" %>
+		<% end %>
+		<%= render partial: "shared/comment_entry", collection: @comment_items %>
 	</div>
 </div>
