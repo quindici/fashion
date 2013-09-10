@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", :tinythumb => "50x50#" }, 
+  # has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#", :tinythumb => "50x50#" }, 
+  #     :default_url => "/images/avatar/:style/missing.png",
+  #     :url => "/system/:class/:attachment/:id/:style.:extension",
+  #     :path => ":rails_root/public/system/:class/:attachment/:id/:style.:extension"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#", :tinythumb => "50x50#" }, 
       :default_url => "/images/avatar/:style/missing.png",
       :url => "/system/:class/:attachment/:id/:style.:extension",
       :path => ":rails_root/public/system/:class/:attachment/:id/:style.:extension"
