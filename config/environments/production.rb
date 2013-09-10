@@ -95,7 +95,7 @@ Hdil2::Application.configure do
       :thumb => :public_read,
       :tinythumb => :public_read,
       :default => :authenticated_read
-    }
+      },
     :s3_protocol => 'https',
     :s3_host_name => "s3-eu-west-1.amazonaws.com"
   }
