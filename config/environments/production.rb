@@ -84,7 +84,7 @@ Hdil2::Application.configure do
   ## The following codes are for Paperclip on AWS
   # Suggested by Heroku's blog
   # https://devcenter.heroku.com/articles/paperclip-s3
-  config.paperclip_desfaults = {
+  config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
       :bucket => ENV['AWS_BUCKET'],
