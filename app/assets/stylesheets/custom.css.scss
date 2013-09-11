@@ -4,12 +4,27 @@ html {
 	overflow-y: scroll;
 }
 
+
+
 header {
-	height: 50px;
+	#navbar {
+		max-height: 40px;
+	}
+	.header_actionbutton {
+		max-height: 23px;
+	}
+	.header_icon {
+		max-height: 23px;
+	}
+	.brand {
+	font-family: 'Happy Monkey', serif;
+	font-size: 48px;
+	font-color: $white;
+}
 }
 
-body {
-	padding-top: 40px;
+#main_body {
+	margin-top: 80px;
 }
 
 #display_name {

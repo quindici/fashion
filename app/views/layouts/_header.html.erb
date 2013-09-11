@@ -3,27 +3,22 @@
 		<div class="container">
 			<%= link_to "How do I look?", root_path, id: "logo", class: "brand" %>
 			<div class="nav-collapse collapse">
+				
 				<ul class="nav">
 	              <li><%= link_to "Home", root_path, class: "active" %></li>
-	              <li>About</li>
+	              <li><%= link_to "About", "#"%></li>
 	            </ul>
+
 	            <ul class="nav pull-right">
 	            <% if user_signed_in? %>
-	              <li>
-	              	<form action="<%= new_look_path %>">
-	              	  <button id="AddLookButton" class="btn">Add Look</button>
-	              	</form>
-	              	<!-- In the future I would like to have dropdown form! -->
-	              	<!-- <button id="AddLookButton" class="btn dropdown-toggle" data-toggle="dropdown">Add Look <span class="caret"></span></button>
-	                -->
-	              </li>
+	              <li><%= link_to "Add Look", new_look_path %></li>
 	              <!-- Account dropdown -->
-	              <li>
-	              	<button id="AccountButton"  class="btn dropdown-toggle" data-toggle="dropdown">
+	              <li class="dropdown">
+	              	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	              		<% unless current_user.avatar.nil? %>
-		              		<%= image_tag current_user.avatar.url(:tinythumb) %>
+		              		<%= image_tag current_user.avatar.url(:tinythumb), class: "header_icon" %>
 		              	<% end %>
-	              		Account <span class="caret"></span></button>
+	              		Account <span class="caret"></span></a>
 	              	<ul class="dropdown-menu">
                     	<li><%= link_to "My Profile", show_user_path(current_user.id)%></li>
                     	<li><%= link_to "Edit Profile", edit_user_registration_path%></li>
@@ -32,8 +27,8 @@
                   	</ul>
 	              </li>
 	            <% else %>
-			          <li class="btn"><%= link_to "Sign in", new_user_session_path %></li>
-			          <li class="btn btn-primary"><%= link_to "Sign up", new_user_registration_path %></li>
+			          <li id="header_signinbtn"><%= link_to "Sign in", new_user_session_path %></li>
+			          <li id="header_signupbtn"><%= link_to "Sign up", new_user_registration_path %></li>
 	            <% end %>
 	        	</ul> <!-- ul nav end -->
 			</div>
