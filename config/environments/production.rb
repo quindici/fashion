@@ -84,6 +84,7 @@ Hdil2::Application.configure do
   ## The following codes are for Paperclip on AWS
   # Suggested by Heroku's blog
   # https://devcenter.heroku.com/articles/paperclip-s3
+  # https://github.com/igor-alexandrov/paperclip-aws
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
@@ -91,12 +92,8 @@ Hdil2::Application.configure do
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     },
-    :s3_permissions => {
-      :thumb => :public_read,
-      :tinythumb => :public_read,
-      :default => :authenticated_read
-      },
-    :s3_protocol => 'https',
+    :s3_permissions => :public_read,
+    :s3_protocol => 'http',
     :s3_host_name => "s3-eu-west-1.amazonaws.com"
   }
 end
